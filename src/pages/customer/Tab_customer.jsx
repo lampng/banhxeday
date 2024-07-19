@@ -2,7 +2,7 @@ import { Tabs, TabsHeader, TabsBody, Tab, TabPanel, Typography } from '@material
 import React, { useState } from 'react';
 import QuickTabs from '../../components/Layout/Content/QuickTabs';
 import { BlockLevelBreadcrumbs } from '../../components/Layout/Content/Breadcrumbs ';
-import Inquiry from './inquiry';
+import Inquiry from './Inquiry';
 
 function Tab_customer() {
     const [activeTab, setActiveTab] = useState('inquiry');
