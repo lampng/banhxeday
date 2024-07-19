@@ -4,7 +4,7 @@ export default function DSCasterFooter() {
     return (
         <div className="sm:px-20 2xl:px-52 flex py-12 bg-gray-900 bg-opacity-10">
             <div className="flex w-72 items-center">
-                <img src={footer_logo} alt="" />
+                <img src={footer_logo} alt="" className='select-none'/>
                 <Typography variant="h5" className="opacity-60 font-bold pl-2">
                     (주)대신캐스터
                 </Typography>

@@ -1,133 +1,188 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Collapse, Typography, IconButton, Menu, MenuHandler, MenuList, MenuItem } from '@material-tailwind/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import top2m1_01 from '/src/assets/headers/top2m1_01.png';
 import top2m1_02 from '/src/assets/headers/top2m1_02.png';
 import top2m1_03 from '/src/assets/headers/top2m1_03.png';
 import top2m1_04 from '/src/assets/headers/top2m1_04.png';
+import { HashLink as Link } from 'react-router-hash-link';
 
 const CompanyListMenuItems = [
     {
         image: top2m1_01,
         title: '회사개요',
         description: 'Message',
+        to: '/company-introduction#Message',
+        value: 'Message',
     },
     {
         image: top2m1_02,
         title: '회사연혁',
         description: 'History',
+        to: '/company-introduction#History',
+        value: 'History',
     },
     {
         image: top2m1_03,
         title: '품질인증',
         description: 'Quality Certification',
+        to: '/company-introduction#Certification',
+        value: 'Certification',
     },
     {
         image: top2m1_04,
         title: '찾아오시는길',
         description: 'Location',
+        to: '/company-introduction#Location',
+        value: 'Location',
     },
 ];
 const CasterDataListMenuItems = [
     {
         title: '캐스터용어',
         description: 'Caster Nomenclature',
+        to: '/caster-data#Caster-Nomenclature',
+        value: 'Casternomenclature',
     },
     {
         title: '플레이트용어',
         description: 'Plate Nomenclature',
+        to: '/caster-data#Plate-Nomenclature',
+        value: 'Platenomenclature',
     },
     {
         title: '허용하중계산법 ',
         description: 'Load Capacity',
+        to: '/caster-data#Load-Capacity',
+        value: 'Loadcapacity',
     },
     {
         title: '표기방법및용어',
         description: 'Caster Numbering System',
+        to: '/caster-data#Caster-Numbering-System',
+        value: 'Casternumberingsystem',
     },
     {
         title: '주의사항',
         description: 'Usage',
+        to: '/caster-data#Usage',
+        value: 'Usage',
     },
 ];
 const ProductListMenuItems = [
     {
         title: '경하중용캐스터',
         description: 'Light-Duty Caster',
+        value: 'Light-Duty Caster',
+        to: '/products#Light-Duty',
     },
     {
         title: '중간하중용 캐스터',
         description: 'Medium-Duty Caster',
+        value: 'Medium-Duty Caster',
+        to: '/products#Medium-Duty',
     },
     {
         title: '중하중용 캐스터',
         description: 'Heavy-Duty Caster',
+        value: 'Heavy-Duty Caster',
+        to: '/products#Heavy-Duty',
     },
     {
         title: '스테인리스 캐스터',
         description: 'Super Heavy-Duty Caster',
+        value: 'Super Heavy-Duty Caster',
+        to: '/products#Super-Heavy',
     },
     {
         title: '고하중용 캐스터',
         description: 'Stainless Steel Caster',
+        value: 'Stainless Steel Caster',
+        to: '/products#StainlessiSteel',
     },
     {
         title: '내열성/내한성 캐스터',
         description: 'Heat-Resisting/Low Temperature Caster',
+        value: 'Heat-Resisting/Low Temperature Caster',
+        to: '/products#Heat-Resisting',
     },
     {
         title: '의료용 캐스터',
         description: 'Medical Equipment Caster',
+        value: 'Medical Equipment Caster',
+        to: '/products#Medical-Equipment',
     },
     {
         title: '저소음 캐스터',
         description: 'Low Noise Caster',
+        value: 'Low Noise Caster',
+        to: '/products#Low-Noise',
     },
     {
         title: '특수 목적용 캐스터',
         description: 'Special Caster',
+        value: 'Special Caster',
+        to: '/products#Special-Caster',
     },
     {
         title: '높낮이조절 캐스터',
         description: 'Leveling Caster',
+        value: 'Leveling Caster',
+        to: '/products#Leveling-Caster',
     },
     {
         title: '높낮이 조절자',
         description: 'Leveling Foot',
+        value: 'Leveling Foot',
+        to: '/products#Leveling-Foot',
     },
     {
         title: '운반 기구',
         description: 'Trolley',
+        to: '/products#',
     },
     {
         title: '기타',
         description: 'etc',
+        to: '/products#',
     },
 ];
 const CustomerCenterListMenuItems = [
     {
         title: '온라인견적문의',
         description: 'Inquiry',
+        value: 'inquiry',
+        href: '#inquiry',
+        to: '/customer-center',
     },
     {
         title: '공지사항',
         description: 'notice',
+        value: 'notice',
+        href: '#notice',
+        to: '/customer-center',
     },
     {
         title: 'News',
+        value: 'News',
+        href: '#News',
+        to: '/customer-center',
     },
     {
         title: 'Q&A',
+        value: 'Q&A',
+        href: '#Q&A',
+        to: '/customer-center',
     },
 ];
 function CompanyDataCenterListMenu() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-    const renderItems = CompanyListMenuItems.map(({ image, title, description }, key) => (
-        <a href="#" key={key} className="">
+    const renderItems = CompanyListMenuItems.map(({ image, title, description, to, value }, key) => (
+        <Link to={to} state={{ value }} key={key} className="">
             <MenuItem className="hover:bg-white rounded-none p-0">
                 <div className="h-16">
-                    <img src={image} alt="" className="m-auto" />
+                    <img src={image} alt="" className="m-auto  select-none" />
                 </div>
 
                 <div className="text-center font-bold">
@@ -139,7 +194,7 @@ function CompanyDataCenterListMenu() {
                     </Typography>
                 </div>
             </MenuItem>
-        </a>
+        </Link>
     ));
 
     return (
@@ -199,8 +254,8 @@ function CompanyDataCenterListMenu() {
 function CasterDataCenterListMenu() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-    const renderItems = CasterDataListMenuItems.map(({ title, description }, key) => (
-        <a href="#" key={key} className="md:w-max">
+    const renderItems = CasterDataListMenuItems.map(({ title, description, to, value }, key) => (
+        <Link to={to} state={{ value }} key={key} className="">
             <MenuItem className="flex items-center hover:bg-white rounded-none p-0">
                 <a className="flex items-center font-bold">
                     <svg
@@ -221,7 +276,7 @@ function CasterDataCenterListMenu() {
                     </span>
                 </a>
             </MenuItem>
-        </a>
+        </Link>
     ));
 
     return (
@@ -281,8 +336,8 @@ function CasterDataCenterListMenu() {
 function ProductsCenterListMenu() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-    const renderItems = ProductListMenuItems.map(({ title, description }, key) => (
-        <a href="#" key={key} className="md:w-max">
+    const renderItems = ProductListMenuItems.map(({ title, description, to, value }, key) => (
+        <Link to={to} state={{ value }} key={key} className="">
             <MenuItem className="flex items-center hover:bg-white rounded-none p-0">
                 <a className="flex items-center font-bold">
                     <svg
@@ -303,7 +358,7 @@ function ProductsCenterListMenu() {
                     </span>
                 </a>
             </MenuItem>
-        </a>
+        </Link>
     ));
 
     return (
@@ -363,8 +418,8 @@ function ProductsCenterListMenu() {
 function CustomerCenterListMenu() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-    const renderItems = CustomerCenterListMenuItems.map(({ title, description }, key) => (
-        <a href="#" key={key} className="md:w-max">
+    const renderItems = CustomerCenterListMenuItems.map(({ title, description, to, value }, key) => (
+        <Link to={to} state={{ value }} key={key} className="">
             <MenuItem className="hover:bg-white rounded-none p-0">
                 <a className="flex items-center font-bold">
                     <svg
@@ -385,7 +440,7 @@ function CustomerCenterListMenu() {
                     </span>
                 </a>
             </MenuItem>
-        </a>
+        </Link>
     ));
 
     return (
@@ -452,9 +507,7 @@ function NavList({ isFlex }) {
 function Header() {
     const [openNav, setOpenNav] = React.useState(false);
     const [isFlex, setIsFlex] = React.useState(window.innerWidth >= 960);
-    // React.useEffect(() => {
-    //     window.addEventListener('resize', () => window.innerWidth >= 960 && setOpenNav(false));
-    // }, []);
+
     React.useEffect(() => {
         const handleResize = () => {
             setIsFlex(window.innerWidth >= 960);
@@ -506,7 +559,7 @@ function Header() {
             <div className="rounded-none shadow-none px-0 ">
                 <div className="flex items-center justify-between text-blue-gray-900 sm:px-20 2xl:px-52">
                     <a href="/" className="mr-4 w-[23rem]">
-                        <img className="" src="http://www.dscaster.com/images/common/logo.gif" alt="" />
+                        <img className="select-none" src="/src/assets/headers/logo.jpg" alt="" />
                     </a>
                     <div className="hidden lg:block py-4 w-full">
                         <NavList isFlex={isFlex} />

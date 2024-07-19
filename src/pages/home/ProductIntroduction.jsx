@@ -333,7 +333,7 @@ function ProductIntroduction() {
                             </div>
                             <div className="w-1/2">
                                 <img
-                                    className="absolute w-max object-cover object-center"
+                                    className="absolute w-max object-cover object-center select-none"
                                     src={desc.img}
                                     alt="nature image"
                                 />

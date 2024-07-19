@@ -33,35 +33,35 @@ function home() {
                     </div>
                 )}
             >
-                <img src={carousel_img1} alt="image 1" className="h-full w-full object-cover" />
-                <img src={carousel_img3} alt="image 3" className="h-full w-full object-cover" />
-                <img src={carousel_img2} alt="image 2" className="h-full w-full object-cover" />
+                <img src={carousel_img1} alt="image 1" className="h-full w-full object-cover select-none" />
+                <img src={carousel_img3} alt="image 3" className="h-full w-full object-cover select-none" />
+                <img src={carousel_img2} alt="image 2" className="h-full w-full object-cover select-none" />
             </Carousel>
             <ProductIntroduction />
-            <ul className="flex 2xl:px-52 md:px-52">
+            <ul className="flex sm:px-20 2xl:px-52 sm:py-2 2xl:py-8 ">
                 <Quick
                     image={'/src/assets/content/quick01.png'}
                     text1={'공지사항'}
                     text2={'대신캐스터 공지사항을 확인해보세요.'}
-                    text3={'바로가기 >'}
+                    text3={'바로가기'}
                 />
                 <Quick
                     image={'/src/assets/content/quick02.png'}
-                    text1={'공지사항'}
-                    text2={'대신캐스터 공지사항을 확인해보세요.'}
-                    text3={'바로가기 >'}
+                    text1={'온라인 견적문의'}
+                    text2={'대신캐스터 온라인 견적문의를 받아보세요.'}
+                    text3={'바로가기'}
                 />
                 <Quick
                     image={'/src/assets/content/quick03.png'}
-                    text1={'공지사항'}
-                    text2={'대신캐스터 공지사항을 확인해보세요.'}
-                    text3={'바로가기 >'}
+                    text1={'찾아오시는길'}
+                    text2={'대신캐스터 오시는길 안내입니다.'}
+                    text3={'바로가기'}
                 />
                 <Quick
                     image={'/src/assets/content/quick04.png'}
-                    text1={'공지사항'}
-                    text2={'대신캐스터 공지사항을 확인해보세요.'}
-                    text3={'바로가기 >'}
+                    text1={'카달로그 다운로드'}
+                    text2={'대신캐스터 카달로그를 다운받으세요.'}
+                    text3={'바로가기'}
                 />
             </ul>
         </div>
