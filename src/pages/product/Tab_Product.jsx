@@ -168,8 +168,8 @@ function Tab_Product() {
                                             <div
                                                 className={
                                                     activeTab === value
-                                                        ? 'text-[11px] leading-none font-medium text-white'
-                                                        : 'text-[11px] leading-none font-medium text-gray-500'
+                                                        ? 'text-[11px] leading-none  tracking-[-0.05em] font-medium text-white'
+                                                        : 'text-[11px] leading-none  tracking-[-0.05em] font-medium text-gray-500'
                                                 }
                                             >
                                                 {labelDesc}

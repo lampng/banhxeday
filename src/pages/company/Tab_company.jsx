@@ -137,9 +137,9 @@ function TabCompany() {
                         />
                     </ul>
                 </TabsHeader>
-                <TabsBody  className="">
+                <TabsBody className="">
                     {data.map(({ value, content }) => (
-                        <TabPanel  key={value} value={value}  className="p-0 px-16 py-6">
+                        <TabPanel key={value} value={value} className="p-0 px-16 py-6">
                             {content}
                         </TabPanel>
                     ))}

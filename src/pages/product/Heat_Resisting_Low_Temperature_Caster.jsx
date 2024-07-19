@@ -67,9 +67,11 @@ function Heat_Resisting_Low_Temperature_Caster({ label, labelDesc }) {
                     ],
                     // commonPCS: 'S-150 R-150 B/K-130',
                 },
-                spec: [{
-                    image: '/src/assets/content/products/HeatResistingLowTemperatureCaster/DS23SERIESLightDuty/160517042243_10.PNG.jpg',
-                }],
+                spec: [
+                    {
+                        image: '/src/assets/content/products/HeatResistingLowTemperatureCaster/DS23SERIESLightDuty/160517042243_10.PNG.jpg',
+                    },
+                ],
                 testReport: [
                     {
                         image: '/src/assets/content/products/HeatResistingLowTemperatureCaster/DS23SERIESLightDuty/160426105404_20.jpg',
@@ -121,9 +123,11 @@ function Heat_Resisting_Low_Temperature_Caster({ label, labelDesc }) {
                     ],
                     // commonPCS: 'S-150 R-150 B/K-130',
                 },
-                spec:[ {
-                    image: '/src/assets/content/products/HeatResistingLowTemperatureCaster/DS23SERIESHeavyDuty/160517042434_10.PNG.jpg',
-                }],
+                spec: [
+                    {
+                        image: '/src/assets/content/products/HeatResistingLowTemperatureCaster/DS23SERIESHeavyDuty/160517042434_10.PNG.jpg',
+                    },
+                ],
             },
         },
         // ! 3
@@ -194,9 +198,11 @@ function Heat_Resisting_Low_Temperature_Caster({ label, labelDesc }) {
                     ],
                     // commonPCS: 'S-150 R-150 B/K-130',
                 },
-                spec:[ {
-                    image: '/src/assets/content/products/HeatResistingLowTemperatureCaster/DS27SERIESLightDuty/160517042509_10.PNG.jpg',
-                }],
+                spec: [
+                    {
+                        image: '/src/assets/content/products/HeatResistingLowTemperatureCaster/DS27SERIESLightDuty/160517042509_10.PNG.jpg',
+                    },
+                ],
             },
         },
         // ! 4
@@ -239,9 +245,11 @@ function Heat_Resisting_Low_Temperature_Caster({ label, labelDesc }) {
                     ],
                     // commonPCS: 'S-150 R-150 B/K-130',
                 },
-                spec:[ {
-                    image: '/src/assets/content/products/HeatResistingLowTemperatureCaster/DS27SERIESHeavyDuty/160517042538_10.PNG.jpg',
-                }],
+                spec: [
+                    {
+                        image: '/src/assets/content/products/HeatResistingLowTemperatureCaster/DS27SERIESHeavyDuty/160517042538_10.PNG.jpg',
+                    },
+                ],
             },
         },
     ];
@@ -260,7 +268,7 @@ function Heat_Resisting_Low_Temperature_Caster({ label, labelDesc }) {
                             <div className="w-full border">
                                 <DrawerProduct image={image} id={id} des={des} label={label} labelDesc={labelDesc} />
                             </div>
-                            <div className="bg-gray-100 py-5 px-4">{id}</div>
+                            <div className="bg-gray-100 py-5 px-4 text-[12px] h-[100px]  font-bold">{id}</div>
                         </div>
                     );
                 })}

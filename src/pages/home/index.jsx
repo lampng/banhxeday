@@ -2,6 +2,7 @@ import { Carousel } from '@material-tailwind/react';
 
 import ProductIntroduction from './ProductIntroduction';
 
+
 import carousel_img1 from '/src/assets/carousel/carousel_img-1.jpg';
 import carousel_img2 from '/src/assets/carousel/carousel_img-2.jpg';
 import carousel_img3 from '/src/assets/carousel/carousel_img-3.jpg';

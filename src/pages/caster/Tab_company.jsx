@@ -6,9 +6,6 @@ import Loadcapacity from './Loadcapacity';
 import Casternumberingsystem from './Casternumberingsystem';
 import Usage from './Usage';
 import QuickTabs from '../../components/Layout/Content/QuickTabs';
-import quick04 from '/src/assets/content/quick04.png'
-import quick02 from '/src/assets/content/quick02.png'
-import quick03 from '/src/assets/content/quick03.png'
 import { BlockLevelBreadcrumbs } from '../../components/Layout/Content/Breadcrumbs ';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -135,17 +132,17 @@ function TabCompany() {
                     {/* //! DOWNLOAD - SEARCH - COMPANY */}
                     <ul className="w-[13rem] px-3 *:py-1 py-14">
                         <QuickTabs
-                            image={{quick04}}
+                            image={'/src/assets/content/quick04.png'}
                             text1={'카달로그 다운'}
                             text3={'바로가기'}
                         />
                         <QuickTabs
-                            image={{quick02}}
+                            image={'/src/assets/content/quick02.png'}
                             text1={'온라인 견적문의'}
                             text3={'바로가기'}
                         />
                         <QuickTabs
-                            image={{quick03}}
+                            image={'/src/assets/content/quick03.png'}
                             text1={'찾아오시는길'}
                             text3={'바로가기'}
                         />

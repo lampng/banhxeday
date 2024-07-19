@@ -93,7 +93,8 @@ function Trolley({ label, labelDesc }) {
                             <div className="w-full border">
                                 <DrawerProduct image={image} id={id} des={des} label={label} labelDesc={labelDesc} />
                             </div>
-                            <div className="bg-gray-100 py-5 px-4">{id}</div>
+                                                        <div className="bg-gray-100 py-5 px-4 text-[12px] h-[100px]  font-bold">{id}</div>
+
                         </div>
                     );
                 })}

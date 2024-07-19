@@ -48,7 +48,7 @@ function DrawerProduct({ image, id, des, label, labelDesc }) {
                         <Dialog.Panel className="mx-auto w-full max-w-5xl rounded bg-white p-6 shadow-xl transition-all">
                             <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
                                 <div>
-                                    <div>
+                                    <div className="flex justify-between">
                                         <div className="flex items-center gap-1 my-2">
                                             <div className="w-5 h-5 rounded-full bg-white border-4 border-red-900" />
                                             <Typography variant="h6" className="text-black gap-2">
@@ -57,6 +57,22 @@ function DrawerProduct({ image, id, des, label, labelDesc }) {
                                                     {labelDesc}
                                                 </span>
                                             </Typography>
+                                        </div>
+                                        <div>
+                                            <button onClick={closeModal}>
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 24 24"
+                                                    fill="currentColor"
+                                                    class="size-6"
+                                                >
+                                                    <path
+                                                        fill-rule="evenodd"
+                                                        d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+                                                        clip-rule="evenodd"
+                                                    />
+                                                </svg>
+                                            </button>
                                         </div>
                                     </div>
                                     <div className="flex gap-2 relative">
@@ -111,23 +127,23 @@ function DrawerProduct({ image, id, des, label, labelDesc }) {
                             {/* //! Spec Image */}
                             {des.spec && (
                                 <div className="mt-4">
-                                <div className="flex gap-2 relative mt-10 mb-4">
-                                    <div className="absolute select-none bottom-[3px] w-[7px] h-[14px] bg-red-900"></div>
-                                    <div className="text-[15px] pl-4 text-black font-bold">제원</div>
+                                    <div className="flex gap-2 relative mt-10 mb-4">
+                                        <div className="absolute select-none bottom-[3px] w-[7px] h-[14px] bg-red-900"></div>
+                                        <div className="text-[15px] pl-4 text-black font-bold">제원</div>
+                                    </div>
+                                    {des &&
+                                        des.spec &&
+                                        des.spec.map((item, index) => (
+                                            <img
+                                                key={index}
+                                                src={item.image}
+                                                alt={`spec image ${index + 1}`}
+                                                className={`max-w-[700px] h-auto object-contain`}
+                                            />
+                                        ))}
                                 </div>
-                                {des &&
-                                            des.spec &&
-                                            des.spec.map((item, index) => (
-                                                <img
-                                                    key={index}
-                                                    src={item.image}
-                                                    alt={`spec image ${index + 1}`}
-                                                    className={`max-w-[700px] h-auto object-contain`}
-                                                />
-                                            ))}
-                            </div>
                             )}
-                            
+
                             {/* //! Test Report Image */}
                             {des.testReport && (
                                 <div className="mt-4">
@@ -149,12 +165,6 @@ function DrawerProduct({ image, id, des, label, labelDesc }) {
                                     </div>
                                 </div>
                             )}
-
-                            <div className="mt-4">
-                                <button onClick={closeModal} className="px-4 py-2 bg-blue-500 text-white rounded-md">
-                                    CLOSE
-                                </button>
-                            </div>
                         </Dialog.Panel>
                     </div>
                 </div>
