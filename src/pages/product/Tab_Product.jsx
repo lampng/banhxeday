@@ -2,7 +2,7 @@ import { Tabs, TabsHeader, TabsBody, Tab, TabPanel, Typography } from '@material
 import React, { useState, useEffect } from 'react';
 import QuickTabs from '../../components/Layout/Content/QuickTabs';
 import { BlockLevelBreadcrumbs } from '../../components/Layout/Content/Breadcrumbs ';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 //! TABS
 import LightDutyCaster from './Light_Duty_Caster';
@@ -17,105 +17,101 @@ import SpecialCaster from './Special_Caster';
 import LevelingCaster from './Leveling_Caster';
 import LevelingFoot from './Leveling_Foot';
 function Tab_Product() {
-    const location = useLocation();
     const navigate = useNavigate();
-    const initialTab = location.state && location.state.value ? location.state.value : 'Light-Duty Caster';
-    const [activeTab, setActiveTab] = useState(initialTab);
-
-    useEffect(() => {
-        if (location.state && location.state.value) {
-            setActiveTab(location.state.value);
-        }
-    }, [location.state]);
+    const { productId } = useParams();
+    const [activeTab, setActiveTab] = useState(productId);
+    const [dataBody, setDataBody] = useState({});
     const site = '제품소개';
     const data = [
         {
             label: '경하중용캐스터',
             labelDesc: 'Light-Duty Caster',
-            value: 'Light-Duty Caster',
+            value: 'Light-Duty',
             content: <LightDutyCaster label="경하중용캐스터" labelDesc="Light-Duty Caster" />,
-            href: '#Light-Duty-Caster',
         },
         {
             label: '중간하중용 캐스터',
             labelDesc: 'Medium-Duty Caster',
-            value: 'Medium-Duty Caster',
+            value: 'Medium-Duty',
             content: <MediumDutyCaster label="중간하중용 캐스터" labelDesc="Medium-Duty Caster" />,
-            href: '#Medium-Duty-Caster',
         },
         {
             label: '중하중용 캐스터',
             labelDesc: 'Heavy-Duty Caster',
-            value: 'Heavy-Duty Caster',
+            value: 'Heavy-Duty',
             content: <HeavyDutyCaster label="중하중용 캐스터" labelDesc="Heavy-Duty Caster" />,
-            href: '#Heavy-Duty-Caster',
         },
         {
             label: '고하중용 캐스터',
             labelDesc: 'Super Heavy-Duty Caster',
-            value: 'Super Heavy-Duty Caster',
+            value: 'Super-Heavy-Duty',
             content: <SuperHeavyDutyCaster label="고하중용 캐스터" labelDesc="Super Heavy-Duty Caster" />,
-            href: '#Super-Heavy-Duty-Caster',
         },
         {
             label: '스테인리스 캐스터',
             labelDesc: 'Stainless Steel Caster',
-            value: 'Stainless Steel Caster',
+            value: 'StainlessiSteel',
             content: <StainlessSteelCaster label="스테인리스 캐스터" labelDesc="Stainless Steel Caster" />,
-            href: '#Stainless-Steel-Caster',
         },
         {
             label: '내열성/내한성 캐스터',
             labelDesc: 'Heat-Resisting/Low Temperature Caster',
-            value: 'Heat-Resisting/Low Temperature Caster',
+            value: 'Heat-Resisting',
             content: (
                 <HeatResistingLowTemperatureCaster
                     label="내열성/내한성 캐스터"
                     labelDesc="Heat-Resisting/Low Temperature Caster"
                 />
             ),
-            href: '#Heat-Resisting-Low-Temperature-Caster',
         },
         {
             label: '의료용 캐스터',
             labelDesc: 'Medical Equipment Caster',
-            value: 'Medical Equipment Caster',
+            value: 'Medical-Equipment',
             content: <MedicalEquipmentCaster label="의료용 캐스터" labelDesc="Medical Equipment Caster" />,
-            href: '#Medical-Equipment-Caster',
         },
         {
             label: '저소음 캐스터',
             labelDesc: 'Low Noise Caster',
-            value: 'Low Noise Caster',
+            value: 'Low-Noise',
             content: <LowNoiseCaster label="저소음 캐스터" labelDesc="Low Noise Caster" />,
-            href: '#Low-Noise-Caster',
         },
         {
             label: '특수 목적용 캐스터',
             labelDesc: 'Special Caster',
-            value: 'Special Caster',
+            value: 'Special-Caster',
             content: <SpecialCaster label="특수 목적용 캐스터" labelDesc="Special Caster" />,
-            href: '#Special-Caster',
         },
         {
             label: '높낮이조절 캐스터',
             labelDesc: 'Leveling Caster',
-            value: 'Leveling Caster',
+            value: 'Leveling-Caster',
             content: <LevelingCaster label="높낮이조절 캐스터" labelDesc="Leveling Caster" />,
-            href: '#Leveling-Caster',
         },
         {
             label: '높낮이 조절자',
             labelDesc: 'Leveling Foot',
-            value: 'Leveling Foot',
+            value: 'Leveling-Foot',
             content: <LevelingFoot label="높낮이 조절자" labelDesc="Leveling Foot" />,
-            href: '#Leveling-Foot',
         },
     ];
     const handleTabChange = (value) => {
         setActiveTab(value);
-        navigate('/products#', { state: { value } });
+        navigate(`/products/${value}`, { state: { value } });
     };
+
+    useEffect(() => {
+        if (productId) {
+            setActiveTab(productId);
+        }
+    }, [productId]);
+
+    useEffect(() => {
+        const activeItem = data.find((item) => item.value === activeTab);
+        if (activeItem) {
+            setDataBody(activeItem);
+        }
+    }, [activeTab]);
     return (
         <div className="w-full">
             {/* //! Top Body */}
@@ -151,9 +147,9 @@ function Tab_Product() {
                         className: 'bg-transparent shadow-none rounded-none',
                     }}
                 >
-                    {data.map(({ label, labelDesc, href, value }) => (
+                    {data.map(({ label, labelDesc, value }) => (
                         <Tab key={value} value={value} className="md:pl-0 p-0 m-0">
-                            <a href={href}>
+                            <a>
                                 <div className="w-[13rem] relative">
                                     <Tab
                                         onClick={() => handleTabChange(value)}
@@ -202,13 +198,11 @@ function Tab_Product() {
                         />
                     </ul>
                 </TabsHeader>
-                <TabsBody className="">
-                    {data.map(({ value, content }) => (
-                        <TabPanel key={value} value={value} className="p-0 px-16 py-6">
-                            {content}
-                        </TabPanel>
-                    ))}
-                </TabsBody>
+                {activeTab === dataBody?.value && (
+                    <TabPanel value={dataBody?.value} className="p-0 px-16 py-6">
+                        {activeTab === dataBody?.value && dataBody?.content}
+                    </TabPanel>
+                )}
             </Tabs>
         </div>
     );

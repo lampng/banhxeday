@@ -12,28 +12,28 @@ const CompanyListMenuItems = [
         image: top2m1_01,
         title: '회사개요',
         description: 'Message',
-        to: '/company-introduction#Message',
+        to: '/company-introduction/Message',
         value: 'Message',
     },
     {
         image: top2m1_02,
         title: '회사연혁',
         description: 'History',
-        to: '/company-introduction#History',
+        to: '/company-introduction/History',
         value: 'History',
     },
     {
         image: top2m1_03,
         title: '품질인증',
         description: 'Quality Certification',
-        to: '/company-introduction#Certification',
+        to: '/company-introduction/Certification',
         value: 'Certification',
     },
     {
         image: top2m1_04,
         title: '찾아오시는길',
         description: 'Location',
-        to: '/company-introduction#Location',
+        to: '/company-introduction/Location',
         value: 'Location',
     },
 ];
@@ -41,31 +41,31 @@ const CasterDataListMenuItems = [
     {
         title: '캐스터용어',
         description: 'Caster Nomenclature',
-        to: '/caster-data#Caster-Nomenclature',
+        to: '/caster-data/Casternomenclature',
         value: 'Casternomenclature',
     },
     {
         title: '플레이트용어',
         description: 'Plate Nomenclature',
-        to: '/caster-data#Plate-Nomenclature',
+        to: '/caster-data/Platenomenclature',
         value: 'Platenomenclature',
     },
     {
         title: '허용하중계산법 ',
         description: 'Load Capacity',
-        to: '/caster-data#Load-Capacity',
+        to: '/caster-data/Loadcapacity',
         value: 'Loadcapacity',
     },
     {
         title: '표기방법및용어',
         description: 'Caster Numbering System',
-        to: '/caster-data#Caster-Numbering-System',
+        to: '/caster-data/Casternumberingsystem',
         value: 'Casternumberingsystem',
     },
     {
         title: '주의사항',
         description: 'Usage',
-        to: '/caster-data#Usage',
+        to: '/caster-data/Usage',
         value: 'Usage',
     },
 ];
@@ -73,78 +73,81 @@ const ProductListMenuItems = [
     {
         title: '경하중용캐스터',
         description: 'Light-Duty Caster',
-        value: 'Light-Duty Caster',
-        to: '/products#Light-Duty',
+        value: 'Light-Duty',
+        to: '/products/Light-Duty',
     },
     {
         title: '중간하중용 캐스터',
         description: 'Medium-Duty Caster',
-        value: 'Medium-Duty Caster',
-        to: '/products#Medium-Duty',
+        value: 'Medium-Duty',
+        to: '/products/Medium-Duty',
     },
     {
         title: '중하중용 캐스터',
         description: 'Heavy-Duty Caster',
-        value: 'Heavy-Duty Caster',
-        to: '/products#Heavy-Duty',
+        value: 'Heavy-Duty',
+        to: '/products/Heavy-Duty',
     },
     {
         title: '스테인리스 캐스터',
         description: 'Super Heavy-Duty Caster',
-        value: 'Super Heavy-Duty Caster',
-        to: '/products#Super-Heavy',
+        value: 'Super-Heavy-Duty',
+        to: '/products/Super-Heavy-Duty',
     },
     {
         title: '고하중용 캐스터',
         description: 'Stainless Steel Caster',
-        value: 'Stainless Steel Caster',
-        to: '/products#StainlessiSteel',
+        value: 'StainlessiSteel',
+        to: '/products/StainlessiSteel',
     },
     {
         title: '내열성/내한성 캐스터',
         description: 'Heat-Resisting/Low Temperature Caster',
-        value: 'Heat-Resisting/Low Temperature Caster',
-        to: '/products#Heat-Resisting',
+        value: 'Heat-Resisting',
+        to: '/products/Heat-Resisting',
     },
     {
         title: '의료용 캐스터',
         description: 'Medical Equipment Caster',
-        value: 'Medical Equipment Caster',
-        to: '/products#Medical-Equipment',
+        value: 'Medical-Equipment',
+        to: '/products/Medical-Equipment',
     },
     {
         title: '저소음 캐스터',
         description: 'Low Noise Caster',
-        value: 'Low Noise Caster',
-        to: '/products#Low-Noise',
+        value: 'Low-Noise',
+        to: '/products/Low-Noise',
     },
     {
         title: '특수 목적용 캐스터',
         description: 'Special Caster',
-        value: 'Special Caster',
-        to: '/products#Special-Caster',
+        value: 'Special-Caster',
+        to: '/products/Special-Caster',
     },
     {
         title: '높낮이조절 캐스터',
         description: 'Leveling Caster',
-        value: 'Leveling Caster',
-        to: '/products#Leveling-Caster',
+        value: 'Leveling-Caster',
+        to: '/products/Leveling-Caster',
     },
     {
         title: '높낮이 조절자',
         description: 'Leveling Foot',
-        value: 'Leveling Foot',
-        to: '/products#Leveling-Foot',
+        value: 'Leveling-Foot',
+        to: '/products/Leveling-Foot',
     },
     {
         title: '운반 기구',
         description: 'Trolley',
-        to: '/products#',
+        to: '/products/Trolley',
+        value: 'Trolley',
+
     },
     {
         title: '기타',
         description: 'etc',
-        to: '/products#',
+        to: '/products/etc',
+        value: 'etc',
     },
 ];
 const CustomerCenterListMenuItems = [
@@ -152,27 +155,25 @@ const CustomerCenterListMenuItems = [
         title: '온라인견적문의',
         description: 'Inquiry',
         value: 'inquiry',
-        href: '#inquiry',
-        to: '/customer-center',
+        to: '/customer-center/inquiry',
     },
     {
         title: '공지사항',
         description: 'notice',
         value: 'notice',
-        href: '#notice',
-        to: '/customer-center',
+        to: '/customer-center/notice',
     },
     {
         title: 'News',
+        description: 'News',
         value: 'News',
-        href: '#News',
-        to: '/customer-center',
+        to: '/customer-center/News',
     },
     {
         title: 'Q&A',
+        description: 'Q&A',
         value: 'Q&A',
-        href: '#Q&A',
-        to: '/customer-center',
+        to: '/customer-center/Q&A',
     },
 ];
 function CompanyDataCenterListMenu() {
@@ -211,7 +212,7 @@ function CompanyDataCenterListMenu() {
                 <MenuHandler>
                     <Typography as="div" variant="small" className="font-medium">
                         <a
-                            href="/company-introduction"
+                            href="/company-introduction/Message"
                             className="items-center text-center text-black hover:text-red-900"
                             selected={isMenuOpen || isMobileMenuOpen}
                             onClick={() => setIsMobileMenuOpen((cur) => !cur)}
@@ -293,7 +294,7 @@ function CasterDataCenterListMenu() {
                 <MenuHandler>
                     <Typography as="div" variant="small" className="font-medium">
                         <a
-                            href="/caster-data"
+                            href="/caster-data/Casternomenclature"
                             className="items-center text-center text-black hover:text-red-900"
                             selected={isMenuOpen || isMobileMenuOpen}
                             onClick={() => setIsMobileMenuOpen((cur) => !cur)}
@@ -375,7 +376,7 @@ function ProductsCenterListMenu() {
                 <MenuHandler>
                     <Typography as="div" variant="small" className="font-medium">
                         <a
-                            href="/products"
+                            href="/products/Light-Duty"
                             className="items-center text-center text-black hover:text-red-900"
                             selected={isMenuOpen || isMobileMenuOpen}
                             onClick={() => setIsMobileMenuOpen((cur) => !cur)}
@@ -457,7 +458,7 @@ function CustomerCenterListMenu() {
                 <MenuHandler>
                     <Typography as="div" variant="small" className="font-medium">
                         <a
-                            href="customer-center"
+                            href="/customer-center/inquiry"
                             className="items-center text-center text-black hover:text-red-900"
                             selected={isMenuOpen || isMobileMenuOpen}
                             onClick={() => setIsMobileMenuOpen((cur) => !cur)}

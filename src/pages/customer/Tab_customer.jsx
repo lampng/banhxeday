@@ -1,11 +1,14 @@
 import { Tabs, TabsHeader, TabsBody, Tab, TabPanel, Typography } from '@material-tailwind/react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import QuickTabs from '../../components/Layout/Content/QuickTabs';
 import { BlockLevelBreadcrumbs } from '../../components/Layout/Content/Breadcrumbs ';
 import Inquiry from './Inquiry';
-
+import { useParams, useNavigate } from 'react-router-dom';
 function Tab_customer() {
-    const [activeTab, setActiveTab] = useState('inquiry');
+    const navigate = useNavigate();
+    const { customerId } = useParams();
+    const [activeTab, setActiveTab] = useState(customerId);
+    const [dataBody, setDataBody] = useState({});('inquiry');
     const site = '고객센터';
     const data = [
         {
@@ -13,9 +16,25 @@ function Tab_customer() {
             labelDesc: 'inquiry',
             value: 'inquiry',
             content: <Inquiry />,
-            href: '#inquiry',
         },
     ];
+    const handleTabChange = (value) => {
+        setActiveTab(value);
+        navigate(`/customer-center/${value}`, { state: { value } });
+    };
+
+    useEffect(() => {
+        if (customerId) {
+            setActiveTab(customerId);
+        }
+    }, [customerId]);
+
+    useEffect(() => {
+        const activeItem = data.find((item) => item.value === activeTab);
+        if (activeItem) {
+            setDataBody(activeItem);
+        }
+    }, [activeTab]);
     return (
         <div className="w-full">
             {/* //! Top Body */}
@@ -30,7 +49,7 @@ function Tab_customer() {
                 </div>
 
                 <div className="bg-[url('/src/assets/content/subVisual_1.jpg')] bg-auto bg-center bg-no-repeat p-0 w-[49rem]  border-b-2 border-[gray] mx-auto">
-                    {data.map(({ label, value }) => (
+                    {data.map(({ label, labelDesc, value }) => (
                         <Tabs
                             key={value}
                             value={value}
@@ -51,12 +70,12 @@ function Tab_customer() {
                         className: 'bg-transparent shadow-none rounded-none',
                     }}
                 >
-                    {data.map(({ label, labelDesc, href, value }) => (
+                    {data.map(({ label, labelDesc, value }) => (
                         <Tab key={value} value={value} className="md:pl-0 p-0 m-0">
-                            <a href={href}>
+                            <a>
                                 <div className="w-[13rem] relative">
                                     <Tab
-                                        onClick={() => setActiveTab(value)}
+                                        onClick={() => handleTabChange(value)}
                                         className={
                                             activeTab === value
                                                 ? 'bg-red-900 text-white justify-start text-start w-full h-[3rem]  px-4'
@@ -102,13 +121,11 @@ function Tab_customer() {
                         />
                     </ul>
                 </TabsHeader>
-                <TabsBody className="">
-                    {data.map(({ value, content }) => (
-                        <TabPanel key={value} value={value} className="p-0 px-16 py-6">
-                            {content}
-                        </TabPanel>
-                    ))}
-                </TabsBody>
+                {activeTab === dataBody?.value && (
+                    <TabPanel value={dataBody?.value} className="p-0 px-16 py-6">
+                        {activeTab === dataBody?.value && dataBody?.content}
+                    </TabPanel>
+                )}
             </Tabs>
         </div>
     );

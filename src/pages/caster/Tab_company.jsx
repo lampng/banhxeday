@@ -7,19 +7,13 @@ import Casternumberingsystem from './Casternumberingsystem';
 import Usage from './Usage';
 import QuickTabs from '../../components/Layout/Content/QuickTabs';
 import { BlockLevelBreadcrumbs } from '../../components/Layout/Content/Breadcrumbs ';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function TabCompany() {
-    const location = useLocation();
     const navigate = useNavigate();
-    const initialTab = location.state && location.state.value ? location.state.value : 'Casternomenclature';
-    const [activeTab, setActiveTab] = useState(initialTab);
-
-    useEffect(() => {
-        if (location.state && location.state.value) {
-            setActiveTab(location.state.value);
-        }
-    }, [location.state]);
+    const { casterId } = useParams();
+    const [activeTab, setActiveTab] = useState(casterId);
+    const [dataBody, setDataBody] = useState({});
     const site = '캐스터자료실';
     const data = [
         {
@@ -27,41 +21,50 @@ function TabCompany() {
             labelDesc: 'Caster Nomenclature',
             value: 'Casternomenclature',
             content: <Casternomenclature />,
-            href: '#Caster-Nomenclature',
         },
         {
             label: '플레이트용어',
             labelDesc: 'Plate Nomenclature',
             value: 'Platenomenclature',
             content: <Platenomenclature />,
-            href: '#Plate-Nomenclature',
         },
         {
             label: '품질인증',
             labelDesc: 'Load Capacity',
             value: 'Loadcapacity',
             content: <Loadcapacity />,
-            href: '#Load-Capacity',
         },
         {
             label: '표기방법및용어',
             labelDesc: 'Caster Numbering System',
             value: 'Casternumberingsystem',
             content: <Casternumberingsystem />,
-            href: '#Caster-Numbering-System',
         },
         {
             label: '주의사항',
             labelDesc: 'Usage',
             value: 'Usage',
             content: <Usage />,
-            href: '#Usage',
         },
     ];
     const handleTabChange = (value) => {
         setActiveTab(value);
-        navigate('/caster-data#', { state: { value } });
+        navigate(`/caster-data/${value}`, { state: { value } });
     };
+
+    useEffect(() => {
+        if (casterId) {
+            setActiveTab(casterId);
+        }
+    }, [casterId]);
+
+    useEffect(() => {
+        const activeItem = data.find((item) => item.value === activeTab);
+        if (activeItem) {
+            setDataBody(activeItem);
+        }
+    }, [activeTab]);
+
     return (
         <div className="w-full">
             {/* //! Top Body */}
@@ -97,9 +100,9 @@ function TabCompany() {
                         className: 'bg-transparent shadow-none rounded-none',
                     }}
                 >
-                    {data.map(({ label, labelDesc, href, value }) => (
+                    {data.map(({ label, labelDesc, value }) => (
                         <Tab key={value} value={value} className="md:pl-0 p-0 m-0">
-                            <a href={href}>
+                            <a>
                                 <div className="w-[13rem] relative">
                                     <Tab
                                         onClick={() => handleTabChange(value)}
@@ -148,13 +151,11 @@ function TabCompany() {
                         />
                     </ul>
                 </TabsHeader>
-                <TabsBody className="">
-                    {data.map(({ value, content }) => (
-                        <TabPanel key={value} value={value} className="p-0 px-16 py-6">
-                            {content}
-                        </TabPanel>
-                    ))}
-                </TabsBody>
+                {activeTab === dataBody?.value && (
+                    <TabPanel value={dataBody?.value} className="p-0 px-16 py-6">
+                        {activeTab === dataBody?.value && dataBody?.content}
+                    </TabPanel>
+                )}
             </Tabs>
         </div>
     );

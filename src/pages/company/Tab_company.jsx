@@ -1,24 +1,20 @@
-import { Tabs, TabsHeader, TabsBody, Tab, TabPanel, Typography } from '@material-tailwind/react';
-import React, { useState, useEffect } from 'react';
-import MessageCom from './MessageCom';
-import HistoryCom from './HistoryCom';
-import CertificationCom from './CertificationCom';
-import LocationCom from './LocationCom';
-import QuickTabs from '../../components/Layout/Content/QuickTabs';
+import { Tab, TabPanel, Tabs, TabsHeader, Typography } from '@material-tailwind/react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { BlockLevelBreadcrumbs } from '../../components/Layout/Content/Breadcrumbs ';
-import { useLocation, useNavigate } from 'react-router-dom';
+import QuickTabs from '../../components/Layout/Content/QuickTabs';
+import CertificationCom from './CertificationCom';
+import HistoryCom from './HistoryCom';
+import LocationCom from './LocationCom';
+import MessageCom from './MessageCom';
 function TabCompany() {
-    const location = useLocation();
     const navigate = useNavigate();
-    const initialTab = location.state && location.state.value ? location.state.value : 'Message';
-    const [activeTab, setActiveTab] = useState(initialTab);
+    const { introductionId } = useParams();
+    const [activeTab, setActiveTab] = useState(introductionId);
+    const [dataBody, setDataBody] = useState({});
 
-    useEffect(() => {
-        if (location.state && location.state.value) {
-            setActiveTab(location.state.value);
-        }
-    }, [location.state]);
     const site = '회사소개';
+
     const data = [
         {
             label: '회사개요',
@@ -45,10 +41,25 @@ function TabCompany() {
             content: <LocationCom />,
         },
     ];
+
     const handleTabChange = (value) => {
         setActiveTab(value);
-        navigate('/company-introduction#', { state: { value } });
+        navigate(`/company-introduction/${value}`, { state: { value } });
     };
+
+    useEffect(() => {
+        if (introductionId) {
+            setActiveTab(introductionId);
+        }
+    }, [introductionId]);
+
+    useEffect(() => {
+        const activeItem = data.find((item) => item.value === activeTab);
+        if (activeItem) {
+            setDataBody(activeItem);
+        }
+    }, [activeTab]);
+
     return (
         <div className="w-full">
             {/* //! Top Body */}
@@ -86,36 +97,34 @@ function TabCompany() {
                         className: 'bg-transparent shadow-none rounded-none',
                     }}
                 >
-                    {data.map(({ label, labelDesc, href, value }) => (
+                    {data.map(({ label, labelDesc, value }) => (
                         <Tab key={value} value={value} className="md:pl-0 p-0 m-0">
-                            <a href={href}>
-                                <div className="w-[13rem] relative">
-                                    <Tab
-                                        onClick={() => handleTabChange(value)}
-                                        className={
-                                            activeTab === value
-                                                ? 'bg-red-900 text-white justify-start text-start w-full h-[3rem]  px-4'
-                                                : 'justify-start text-start w-full h-[3rem] px-4'
-                                        }
-                                    >
-                                        <div className="w-max">
-                                            <div className="text-[15px] leading-none font-bold">{label}</div>
-                                            <div
-                                                className={
-                                                    activeTab === value
-                                                        ? 'text-[11px] leading-none font-medium text-white'
-                                                        : 'text-[11px] leading-none font-medium text-gray-500'
-                                                }
-                                            >
-                                                {labelDesc}
-                                            </div>
+                            <div className="w-[13rem] relative">
+                                <Tab
+                                    onClick={() => handleTabChange(value)}
+                                    className={
+                                        activeTab === value
+                                            ? 'bg-red-900 text-white justify-start text-start w-full h-[3rem] px-4'
+                                            : 'justify-start text-start w-full h-[3rem] px-4'
+                                    }
+                                >
+                                    <div className="w-max">
+                                        <div className="text-[15px] leading-none font-bold">{label}</div>
+                                        <div
+                                            className={
+                                                activeTab === value
+                                                    ? 'text-[11px] leading-none font-medium text-white'
+                                                    : 'text-[11px] leading-none font-medium text-gray-500'
+                                            }
+                                        >
+                                            {labelDesc}
                                         </div>
-                                    </Tab>
-                                    {activeTab === value && (
-                                        <div className="absolute top-[0.44rem] end-[-1.05rem] w-[2.12rem] h-[2.12rem] bg-red-900 transform rotate-45"></div>
-                                    )}
-                                </div>
-                            </a>
+                                    </div>
+                                </Tab>
+                                {activeTab === value && (
+                                    <div className="absolute top-[0.44rem] end-[-1.05rem] w-[2.12rem] h-[2.12rem] bg-red-900 transform rotate-45"></div>
+                                )}
+                            </div>
                         </Tab>
                     ))}
                     {/* //! DOWNLOAD - SEARCH - COMPANY */}
@@ -137,13 +146,11 @@ function TabCompany() {
                         />
                     </ul>
                 </TabsHeader>
-                <TabsBody className="">
-                    {data.map(({ value, content }) => (
-                        <TabPanel key={value} value={value} className="p-0 px-16 py-6">
-                            {content}
-                        </TabPanel>
-                    ))}
-                </TabsBody>
+                {activeTab === dataBody?.value && (
+                    <TabPanel value={dataBody?.value} className="p-0 px-16 py-6">
+                        {activeTab === dataBody?.value && dataBody?.content}
+                    </TabPanel>
+                )}
             </Tabs>
         </div>
     );
