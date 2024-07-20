@@ -170,7 +170,7 @@ function Casternumberingsystem() {
         <div className="select-none">
             <div
                 alt=""
-                className="bg-[url('/src/assets/content/caster/sub02_img04.png')] bg-no-repeat bg-auto bg-center w-[750px] h-[160px]  border-4 rounded-lg"
+                className="bg-[url('/src/assets/content/caster/sub02_img04.png')] bg-no-repeat bg-auto bg-center w-[1200px] h-[160px]  border-4 rounded-lg"
             />
             <div className="flex items-center gap-1 my-2">
                 <div className="w-5 h-5 rounded-full bg-white border-4 border-red-900" />
@@ -178,9 +178,9 @@ function Casternumberingsystem() {
                     캐스터 휠 종류_Caster Wheels
                 </Typography>
             </div>
-            <div className="w-full flex">
-                <table className="">
-                    <tbody className="flex flex-wrap row-auto border-t-2 border-t-red-900">
+            <div className="">
+                <table className="w-full">
+                    <tbody className="grid grid-cols-2 w-full row-auto border-t-2 border-t-red-900">
                         {TABLE_ROWS.map(({ image, CS, CS_des_eng, CS_des_kor }, index) => {
                             const isLast = index === TABLE_ROWS.length - 1;
                             const isEven = index % 2 === 0;
@@ -201,20 +201,16 @@ function Casternumberingsystem() {
                             }
 
                             return (
-                                <tr className="w-1/2">
-                                    <td className={`${classes} w-2/5 `}>
-                                        <img src={image} alt="" className="" />
-                                    </td>
-                                    <td className={`${classes} w-1/5 bg-blue-gray-50/50`}>
-                                        <Typography
-                                            variant="small"
-                                            color="blue-gray"
-                                            className="font-normal text-center"
-                                        >
-                                            {CS}
-                                        </Typography>
-                                    </td>
-                                    <td className={`${classes} w-2/5`}>
+                                <tr className="w-full flex">
+                                    <img src={image} alt="" className={`${classes} w-2/5`} />
+                                    <Typography
+                                        variant="small"
+                                        color="blue-gray"
+                                        className={`${classes} w-1/5 bg-blue-gray-50/50 font-normal content-center text-center`}
+                                    >
+                                        {CS}
+                                    </Typography>
+                                    <td className={`${classes} w-2/5 content-center`}>
                                         <Typography color="blue-gray" className="font-normal text-[12px] w-full">
                                             {CS_des_eng}
                                         </Typography>

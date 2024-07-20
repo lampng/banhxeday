@@ -49,7 +49,7 @@ function Tab_customer() {
                     </div>
                 </div>
 
-                <div className="bg-[url('/src/assets/content/subVisual_1.jpg')] bg-auto bg-center bg-no-repeat p-0 w-[49rem]  border-b-2 border-[gray] mx-auto">
+                <div className="bg-[url('/src/assets/content/subVisual_1.jpg')] bg-auto bg-center bg-no-repeat p-0 w-[1200px]  border-b-2 border-[gray] mx-auto">
                     {data.map(({ label, labelDesc, value }) => (
                         <Tabs
                             key={value}

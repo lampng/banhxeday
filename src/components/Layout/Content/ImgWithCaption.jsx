@@ -2,9 +2,9 @@ import { Typography } from '@material-tailwind/react';
 function ImgWithCaption({ image, caption }) {
     return (
         <div className='select-none'>
-            <figure className="h-auto w-full shadow-xl">
+            <figure className="h-auto  mx-auto w-max shadow-xl">
                 <img
-                    className=" w-full object-cover object-center bg-center bg-cover select-none"
+                    className=" w-[250px] object-cover object-center bg-center bg-cover select-none"
                     src={image}
                     alt="nature image"
                 />

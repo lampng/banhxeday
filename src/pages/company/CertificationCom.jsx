@@ -2,7 +2,7 @@ import ImgWithCaption from '../../components/Layout/Content/ImgWithCaption';
 import React from 'react';
 function CertificationCom() {
     return (
-        <div className="grid grid-cols-3 gap-20 ">
+        <div className="grid grid-cols-3 justify-center gap-20 ">
             <ImgWithCaption image={'/src/assets/content/certification/certifi_s_01.jpg'} caption={'CE마크'} />
             <ImgWithCaption image={'/src/assets/content/certification/certifi_s_02.jpg'} caption={'ISO 9001 영문'} />
             <ImgWithCaption image={'/src/assets/content/certification/certifi_s_03.jpg'} caption={'ISO 9001'} />
