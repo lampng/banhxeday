@@ -6,9 +6,13 @@ import product from '../pages/product';
 // import singleProduct from '../pages/singleProduct';
 const publicRoutes = [
     { path: '/', component: home },
+    { path: '/company-introduction', component: company },
     { path: '/company-introduction/:introductionId', component: company },
+    { path: '/caster-data', component: caster },
     { path: '/caster-data/:casterId', component: caster },
+    { path: '/products', component: product },
     { path: '/products/:productId', component: product },
+    { path: '/customer-center/', component: customer },
     { path: '/customer-center/:customerId', component: customer },
 ];
 const PrivateRoutes = [];

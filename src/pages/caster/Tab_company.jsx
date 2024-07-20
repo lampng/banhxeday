@@ -12,7 +12,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 function TabCompany() {
     const navigate = useNavigate();
     const { casterId } = useParams();
-    const [activeTab, setActiveTab] = useState(casterId);
+    const defaultTab = 'Casternomenclature';
+    const [activeTab, setActiveTab] = useState(casterId || defaultTab);
     const [dataBody, setDataBody] = useState({});
     const site = '캐스터자료실';
     const data = [

@@ -19,7 +19,8 @@ import LevelingFoot from './Leveling_Foot';
 function Tab_Product() {
     const navigate = useNavigate();
     const { productId } = useParams();
-    const [activeTab, setActiveTab] = useState(productId);
+    const defaultTab = 'Light-Duty';
+    const [activeTab, setActiveTab] = useState(productId || defaultTab);
     const [dataBody, setDataBody] = useState({});
     const site = '제품소개';
     const data = [

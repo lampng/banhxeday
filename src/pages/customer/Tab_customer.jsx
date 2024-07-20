@@ -7,7 +7,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 function Tab_customer() {
     const navigate = useNavigate();
     const { customerId } = useParams();
-    const [activeTab, setActiveTab] = useState(customerId);
+    const defaultTab = 'inquiry';
+    const [activeTab, setActiveTab] = useState(customerId || defaultTab);
     const [dataBody, setDataBody] = useState({});('inquiry');
     const site = '고객센터';
     const data = [

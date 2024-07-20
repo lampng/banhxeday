@@ -10,7 +10,8 @@ import MessageCom from './MessageCom';
 function TabCompany() {
     const navigate = useNavigate();
     const { introductionId } = useParams();
-    const [activeTab, setActiveTab] = useState(introductionId);
+    const defaultTab = 'Message';
+    const [activeTab, setActiveTab] = useState(introductionId || defaultTab);
     const [dataBody, setDataBody] = useState({});
 
     const site = '회사소개';
