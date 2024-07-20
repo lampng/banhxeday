@@ -35,7 +35,7 @@ function DrawerProduct({ image, id, des, label, labelDesc }) {
 
     return (
         <>
-            <img onClick={openModal} className="h-[230px] object-contain cursor-pointer" src={image} alt="" />
+            <img onClick={openModal} className="h-[350px] w-full object-contain cursor-pointer" src={image} alt="" />
             <Dialog open={isOpen} onClose={closeModal} className="relative z-50">
                 {/* The backdrop, rendered as a fixed sibling to the panel container */}
                 <div className="fixed inset-0 bg-black/30" aria-hidden="true" />

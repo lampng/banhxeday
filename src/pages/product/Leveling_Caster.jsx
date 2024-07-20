@@ -57,7 +57,7 @@ function Leveling_Caster({ label, labelDesc }) {
                 },
                 spec: [
                     {
-                        image: '/src/assets/content/products/LevelingCaster/QM60_300/160517043454_10.PNG',
+                        image: '/src/assets/content/products/LevelingCaster/QM60_300/160517043454_10.png',
                     },
                 ],
             },
