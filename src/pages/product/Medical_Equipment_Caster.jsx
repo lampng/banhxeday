@@ -78,24 +78,24 @@ function Medical_Equipment_Caster({ label, labelDesc }) {
         },
         // ! 2
         {
-            image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_00.JPG',
+            image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_00.png',
             id: 'DS 21 SERIES 중량용 무소음 플라스틱 캐스터 (Low Noise Plastic Heavy Duty Caster)',
             des: {
                 imageProduct: [
                     {
-                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_00.JPG',
+                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_00.png',
                         type: 'Model: DS 2151 MRB-S',
                     },
                     {
-                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_01.JPG',
+                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_01.png',
                         type: 'Model: DS 2151 MRB-BK',
                     },
                     {
-                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_02.JPG',
+                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_02.png',
                         type: 'Model: DS 2161 MRB-BT',
                     },
                     {
-                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_03.JPG',
+                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_03.png',
                         type: 'Model: DS 2161 MRB-BT BK',
                     },
                 ],
