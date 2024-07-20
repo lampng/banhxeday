@@ -212,7 +212,7 @@ function CompanyDataCenterListMenu() {
                 <MenuHandler>
                     <Typography as="div" variant="small" className="font-medium">
                         <a
-                            href="/company-introduction/Message"
+                            href="/company-introduction"
                             className="items-center text-center text-black hover:text-red-900"
                             selected={isMenuOpen || isMobileMenuOpen}
                             onClick={() => setIsMobileMenuOpen((cur) => !cur)}
@@ -294,7 +294,7 @@ function CasterDataCenterListMenu() {
                 <MenuHandler>
                     <Typography as="div" variant="small" className="font-medium">
                         <a
-                            href="/caster-data/Casternomenclature"
+                            href="/caster-data"
                             className="items-center text-center text-black hover:text-red-900"
                             selected={isMenuOpen || isMobileMenuOpen}
                             onClick={() => setIsMobileMenuOpen((cur) => !cur)}
@@ -376,7 +376,7 @@ function ProductsCenterListMenu() {
                 <MenuHandler>
                     <Typography as="div" variant="small" className="font-medium">
                         <a
-                            href="/products/Light-Duty"
+                            href="/products"
                             className="items-center text-center text-black hover:text-red-900"
                             selected={isMenuOpen || isMobileMenuOpen}
                             onClick={() => setIsMobileMenuOpen((cur) => !cur)}
@@ -458,7 +458,7 @@ function CustomerCenterListMenu() {
                 <MenuHandler>
                     <Typography as="div" variant="small" className="font-medium">
                         <a
-                            href="/customer-center/inquiry"
+                            href="/customer-center"
                             className="items-center text-center text-black hover:text-red-900"
                             selected={isMenuOpen || isMobileMenuOpen}
                             onClick={() => setIsMobileMenuOpen((cur) => !cur)}
