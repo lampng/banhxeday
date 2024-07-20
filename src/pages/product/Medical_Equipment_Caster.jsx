@@ -78,24 +78,24 @@ function Medical_Equipment_Caster({ label, labelDesc }) {
         },
         // ! 2
         {
-            image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_01.jpg',
+            image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_00.JPG',
             id: 'DS 21 SERIES 중량용 무소음 플라스틱 캐스터 (Low Noise Plastic Heavy Duty Caster)',
             des: {
                 imageProduct: [
                     {
-                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_00.jpg',
+                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_00.JPG',
                         type: 'Model: DS 2151 MRB-S',
                     },
                     {
-                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_01.jpg',
+                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_01.JPG',
                         type: 'Model: DS 2151 MRB-BK',
                     },
                     {
-                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_02.jpg',
+                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_02.JPG',
                         type: 'Model: DS 2161 MRB-BT',
                     },
                     {
-                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_03.jpg',
+                        image: '/src/assets/content/products/MedicalEquipmentCaster/DS21SERIES_2/180308044315_03.JPG',
                         type: 'Model: DS 2161 MRB-BT BK',
                     },
                 ],
@@ -215,7 +215,7 @@ function Medical_Equipment_Caster({ label, labelDesc }) {
         // ! 4
         {
             image: '/src/assets/content/products/MedicalEquipmentCaster/DS25SERIES/160426105727_06.jpg',
-            id: 'DS 21 SERIES 중량용 무소음 플라스틱 캐스터 (Low Noise Plastic Heavy Duty Caster)',
+            id: 'DS 25 SERIES 이중 제동용(Dual Brake)',
             des: {
                 imageProduct: [
                     {
