@@ -6,6 +6,7 @@ import top2m1_02 from '/src/assets/headers/top2m1_02.png';
 import top2m1_03 from '/src/assets/headers/top2m1_03.png';
 import top2m1_04 from '/src/assets/headers/top2m1_04.png';
 import { HashLink as Link } from 'react-router-hash-link';
+import DividerVertical from '../../../../assets/iconJsx/DividerVertical';
 
 const CompanyListMenuItems = [
     {
@@ -39,30 +40,35 @@ const CompanyListMenuItems = [
 ];
 const CasterDataListMenuItems = [
     {
+        image: top2m1_01,
         title: '캐스터용어',
         description: 'Caster Nomenclature',
         to: '/caster-data/Casternomenclature',
         value: 'Casternomenclature',
     },
     {
+        image: top2m1_01,
         title: '플레이트용어',
         description: 'Plate Nomenclature',
         to: '/caster-data/Platenomenclature',
         value: 'Platenomenclature',
     },
     {
+        image: top2m1_01,
         title: '허용하중계산법 ',
         description: 'Load Capacity',
         to: '/caster-data/Loadcapacity',
         value: 'Loadcapacity',
     },
     {
+        image: top2m1_01,
         title: '표기방법및용어',
         description: 'Caster Numbering System',
         to: '/caster-data/Casternumberingsystem',
         value: 'Casternumberingsystem',
     },
     {
+        image: top2m1_01,
         title: '주의사항',
         description: 'Usage',
         to: '/caster-data/Usage',
@@ -71,72 +77,84 @@ const CasterDataListMenuItems = [
 ];
 const ProductListMenuItems = [
     {
+        image: top2m1_01,
         title: '경하중용캐스터',
         description: 'Light-Duty Caster',
         value: 'Light-Duty',
         to: '/products/Light-Duty',
     },
     {
+        image: top2m1_01,
         title: '중간하중용 캐스터',
         description: 'Medium-Duty Caster',
         value: 'Medium-Duty',
         to: '/products/Medium-Duty',
     },
     {
+        image: top2m1_01,
         title: '중하중용 캐스터',
         description: 'Heavy-Duty Caster',
         value: 'Heavy-Duty',
         to: '/products/Heavy-Duty',
     },
     {
+        image: top2m1_01,
         title: '스테인리스 캐스터',
         description: 'Super Heavy-Duty Caster',
         value: 'Super-Heavy-Duty',
         to: '/products/Super-Heavy-Duty',
     },
     {
+        image: top2m1_01,
         title: '고하중용 캐스터',
         description: 'Stainless Steel Caster',
         value: 'StainlessiSteel',
         to: '/products/StainlessiSteel',
     },
     {
+        image: top2m1_01,
         title: '내열성/내한성 캐스터',
         description: 'Heat-Resisting/Low Temperature Caster',
         value: 'Heat-Resisting',
         to: '/products/Heat-Resisting',
     },
     {
+        image: top2m1_01,
         title: '의료용 캐스터',
         description: 'Medical Equipment Caster',
         value: 'Medical-Equipment',
         to: '/products/Medical-Equipment',
     },
     {
+        image: top2m1_01,
         title: '저소음 캐스터',
         description: 'Low Noise Caster',
         value: 'Low-Noise',
         to: '/products/Low-Noise',
     },
     {
+        image: top2m1_01,
         title: '특수 목적용 캐스터',
         description: 'Special Caster',
         value: 'Special-Caster',
         to: '/products/Special-Caster',
     },
     {
+        image: top2m1_01,
         title: '높낮이조절 캐스터',
         description: 'Leveling Caster',
         value: 'Leveling-Caster',
         to: '/products/Leveling-Caster',
     },
     {
+        image: top2m1_01,
         title: '높낮이 조절자',
         description: 'Leveling Foot',
         value: 'Leveling-Foot',
         to: '/products/Leveling-Foot',
     },
     {
+        image: top2m1_01,
         title: '운반 기구',
         description: 'Trolley',
         to: '/products/Trolley',
@@ -144,6 +162,7 @@ const ProductListMenuItems = [
 
     },
     {
+        image: top2m1_01,
         title: '기타',
         description: 'etc',
         to: '/products/etc',
@@ -152,24 +171,28 @@ const ProductListMenuItems = [
 ];
 const CustomerCenterListMenuItems = [
     {
+        image: top2m1_01,
         title: '온라인견적문의',
         description: 'Inquiry',
         value: 'inquiry',
         to: '/customer-center/inquiry',
     },
     {
+        image: top2m1_01,
         title: '공지사항',
         description: 'notice',
         value: 'notice',
         to: '/customer-center/notice',
     },
     {
+        image: top2m1_01,
         title: 'News',
         description: 'News',
         value: 'News',
         to: '/customer-center/News',
     },
     {
+        image: top2m1_01,
         title: 'Q&A',
         description: 'Q&A',
         value: 'Q&A',
@@ -419,6 +442,7 @@ function ProductsCenterListMenu() {
 function CustomerCenterListMenu() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
     const renderItems = CustomerCenterListMenuItems.map(({ title, description, to, value }, key) => (
         <Link to={to} state={{ value }} key={key} className="">
             <MenuItem className="hover:bg-white rounded-none p-0">
@@ -495,16 +519,133 @@ function CustomerCenterListMenu() {
         </React.Fragment>
     );
 }
+
+const navConfig = [
+    {
+        listMenuItems: CompanyListMenuItems,
+        title: "회사소개",
+        subtitle: "Company Introduction",
+        headerTitle: "회사소개",
+        headerSubtitle: "캐스터의 해결책을 제시하는 기업"
+    },
+    {
+        listMenuItems: CasterDataListMenuItems,
+        title: "캐스터자료실",
+        subtitle: "Caster Data",
+        headerTitle: "캐스터자료실",
+        headerSubtitle: "캐스터의 해결책을 제시하는 기업"
+    },
+    {
+        listMenuItems: ProductListMenuItems,
+        title: "제품소개",
+        subtitle: "Products",
+        headerTitle: "제품소개",
+        headerSubtitle: "캐스터의 해결책을 제시하는 기업"
+    },
+    {
+        listMenuItems: CustomerCenterListMenuItems,
+        title: "고객센터",
+        subtitle: "Customer Center",
+        headerTitle: "고객센터",
+        headerSubtitle: "캐스터의 해결책을 제시하는 기업"
+    }
+];
+
+function BaseNav({ listMenuItems, title, subtitle, headerTitle, headerSubtitle }) {
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+
+    const renderItems = listMenuItems.map(({ image, title, description, to, value }, key) => (
+        <Link to={to} state={{ value }} key={key} className="">
+            <MenuItem className="hover:bg-white rounded-none p-0">
+                <div className="h-16">
+                    <img src={image} alt="" className="m-auto  select-none" />
+                </div>
+
+                <div className="text-center font-bold">
+                    <Typography variant="h6" className="">
+                        {title}
+                    </Typography>
+                    <Typography variant="paragraph" className="text-xs !font-medium !text-blue-gray-500">
+                        {description}
+                    </Typography>
+                </div>
+            </MenuItem>
+        </Link>
+    ));
+
+    return (
+        <React.Fragment>
+            <Menu
+                open={isMenuOpen}
+                handler={setIsMenuOpen}
+                animate={{
+                    mount: { x: 0, y: 0 },
+                    unmount: { x: 0, y: 0 },
+                }}
+                allowHover={true}
+            >
+                <MenuHandler>
+                    <Typography as="div" variant="small" className="font-medium">
+                        <a
+                            href="/company-introduction"
+                            className="items-center text-center text-black hover:text-red-900"
+                            selected={isMenuOpen || isMobileMenuOpen}
+                            onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+                        >
+                            <Typography className=" opacity-80" variant="h5">
+                                {title}
+                            </Typography>
+                            <Typography
+                                variant="paragraph"
+                                className="text-xs capitalize text-black opacity-40 font-bold"
+                            >
+                                {subtitle}
+                            </Typography>
+                        </a>
+                    </Typography>
+                </MenuHandler>
+                <MenuList className="hidden rounded-none w-screen lg:block  sm:px-20 2xl:px-52 mt-3.5 select-none  border-y border-red-900">
+                    <div className="flex 2xl:h-32">
+                        <div className="2xl:w-80 m-auto">
+                            <Typography variant="h4" className="text-black opacity-80">
+                                {headerTitle}
+                            </Typography>
+                            <Typography className="!font-bold text-xs">{headerSubtitle}</Typography>
+                        </div>
+                        <div class="md:h-16 my-auto border-l-2 border-gray-300 ml-5"></div>
+                        <div className="w-full content-center">
+                            <ul className="outline-none outline-0 pl-28 pr-20">
+                                <li className="flex flex-wrap justify-between gap-3">{renderItems}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </MenuList>
+            </Menu>
+            <div className="block lg:hidden">
+                <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
+            </div>
+        </React.Fragment>
+    );
+}
+
 function NavList({ isFlex }) {
     return (
         <div className={`mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:p-1 justify-between xl:ml-44  ${isFlex ? 'flex' : ''}`}>
-            <CompanyDataCenterListMenu />
-            <CasterDataCenterListMenu />
-            <ProductsCenterListMenu />
-            <CustomerCenterListMenu />
+            {navConfig.map((config, index) => (
+                <BaseNav
+                    key={index}
+                    listMenuItems={config.listMenuItems}
+                    title={config.title}
+                    subtitle={config.subtitle}
+                    headerTitle={config.headerTitle}
+                    headerSubtitle={config.headerSubtitle}
+                />
+            ))}
         </div>
     );
 }
+
 function Header() {
     const [openNav, setOpenNav] = React.useState(false);
     const [isFlex, setIsFlex] = React.useState(window.innerWidth >= 960);
@@ -524,37 +665,15 @@ function Header() {
     return (
         <div className="w-screen">
             <header className="w-full bg-red-900 h-8  sm:px-20 2xl:px-52">
-                <div className="flex font-medium text-xs text-white justify-end md:container md:mx-auto py-2">
+                <div className="flex font-medium text-xs text-white justify-end md:container md:mx-auto py-2 divide-x">
                     <a href="#" className="px-2 tracking-tighter opacity-85 text-center">
                         HOME
                     </a>
-                    <Typography className="content-center">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="size-2.5 rotate-90 mr-0"
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
-                        </svg>
-                    </Typography>
+                    {/* <DividerVertical /> */}
                     <a href="#" className="px-2 tracking-tighter opacity-85">
                         SITEMAP
                     </a>
-                    <Typography className="content-center">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="size-2.5 rotate-90 mr-0"
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
-                        </svg>
-                    </Typography>
+                    {/* <DividerVertical /> */}
                 </div>
             </header>
             <div className="rounded-none shadow-none px-0 ">
